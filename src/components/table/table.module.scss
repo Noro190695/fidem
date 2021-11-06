@@ -1,0 +1,128 @@
+@import "../../style/var";
+
+.table {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid silver;
+    gap: 10px;
+    margin-bottom: 10px;
+    li {
+      font-weight: bold;
+      padding: 10px 0;
+      width: 20%;
+      border-right: 1px solid silver;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .body {
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+
+      &:nth-child(odd) {
+        background-color: rgb(224, 224, 224);
+      }
+      &:nth-child(even) {
+        background-color: silver;
+      }
+
+      li {
+        &:last-child {
+          display: flex;
+          transition: 0.3s;
+          opacity: 0;
+          a {
+            font-size: 18px;
+            color: $silver;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              color: darken($color: $silver, $amount: 20);
+            }
+          }
+          button {
+            margin-left: 20px;
+            border: none;
+            background: none;
+            color: $red;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              color: lighten($color: $red, $amount: 10);
+            }
+          }
+        }
+      }
+      &:hover li:last-child {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $brackpoint-3) {
+  .table {
+    .header {
+      li {
+        font-size: 12px;
+        border: none;
+        &:last-child {
+           display: none;
+        }
+      }
+    }
+    .body {
+      ul {
+          margin: 3px 0;
+        li {
+          font-size: 12px;
+
+          &:last-child {
+            opacity: 1;
+            a, button{
+              font-size: 12px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $brackpoint-4) {
+    .table {
+      .header {
+        li {
+          font-size: 10px;
+        }
+      }
+      .body {
+        ul {
+            flex-direction: column;
+          li {
+            font-size: 16px;
+            margin: 5px 0;
+  
+            &:last-child {
+              opacity: 1;
+              a, button{
+                font-size: 18px;
+              }
+  
+            }
+          }
+        }
+      }
+    }
+  }
