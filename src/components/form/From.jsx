@@ -119,9 +119,9 @@ const Form = () => {
         />
         <input
           type="tel"
-          placeholder="098190695"
+          placeholder="098 190 695"
           value={phone}
-          pattern="[0-9]{9}"
+          pattern="[0-9]{3} [0-9]{3} [0-9]{3}"
           required
           onChange={(e) => setPhone(e.target.value)}
         />

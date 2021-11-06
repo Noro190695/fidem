@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import classNames from "classnames";
 import tableStyle from "./table.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 const Table = ({data}) => {
   const [alert, setAlert] = useState(false)
   const [message, setMessage] = useState('')
-  
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const edit = (editData) => {
@@ -25,6 +25,7 @@ const Table = ({data}) => {
     dispatch(deleteUserAction(data,id))
     setTimeout(() => {
       setAlert(false)
+      history.push('/')
     }, 1000)
   }
   
@@ -73,6 +74,7 @@ const Table = ({data}) => {
   }else{
     return (
       <div className={classNames("container")}>
+       {alert?<Alert type='error' content={message} />: null}
         <h2 className={classNames("user__note_found")}>User note found</h2>
       </div>
     )

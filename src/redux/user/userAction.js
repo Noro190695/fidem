@@ -44,6 +44,7 @@ export const searchUserAction = (allData, value) => {
     ) {
       return item;
     }
+    else{return null}
   });
   
   return {

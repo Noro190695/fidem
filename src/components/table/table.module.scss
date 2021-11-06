@@ -36,6 +36,10 @@
       }
 
       li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
         &:last-child {
           display: flex;
           transition: 0.3s;
@@ -70,45 +74,20 @@
   }
 }
 
-
 @media (max-width: $brackpoint-3) {
-  .table {
-    .header {
-      li {
-        font-size: 12px;
-        border: none;
-        &:last-child {
-           display: none;
-        }
-      }
-    }
-    .body {
-      ul {
-          margin: 3px 0;
-        li {
-          font-size: 12px;
-
-          &:last-child {
-            opacity: 1;
-            a, button{
-              font-size: 12px;
-            }
-
-          }
-        }
-      }
-    }
-  }
-}
-@media (max-width: $brackpoint-4) {
     .table {
       .header {
         li {
-          font-size: 10px;
+          font-size: 12px;
+          border: none;
+           &:last-child {
+           display: none;
+        }
         }
       }
       .body {
         ul {
+          margin: 3px 0;
             flex-direction: column;
           li {
             font-size: 16px;
